@@ -13,6 +13,7 @@ namespace TicketManagement.Infrastructure
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
 
             services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<ICsvExporter, ICsvExporter>();
 
             return services;
         }
