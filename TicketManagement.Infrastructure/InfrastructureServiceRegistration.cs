@@ -4,7 +4,7 @@ using TicketManagement.Infrastructure.Mail;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GloboTicket.TicketManagement.Infrastructure
+namespace TicketManagement.Infrastructure
 {
     public static class InfrastructureServiceRegistration
     {
