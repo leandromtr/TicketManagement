@@ -14,4 +14,8 @@
     <ProjectReference Include="..\TicketManagement.Application\TicketManagement.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configurations\Repositories\" />
+  </ItemGroup>
+
 </Project>

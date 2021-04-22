@@ -15,11 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{EE90FFD8-269F-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6C15ED52-980D-495D-B20C-E134B46606A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketManagement.Domain", "TicketManagement.Domain\TicketManagement.Domain.csproj", "{61F811C9-D224-43ED-B573-005359E0BB7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketManagement.Domain", "TicketManagement.Domain\TicketManagement.Domain.csproj", "{61F811C9-D224-43ED-B573-005359E0BB7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketManagement.Application", "TicketManagement.Application\TicketManagement.Application.csproj", "{DF802224-4A71-4BF4-81E8-607E7BF2A056}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketManagement.Application", "TicketManagement.Application\TicketManagement.Application.csproj", "{DF802224-4A71-4BF4-81E8-607E7BF2A056}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketManagement.Persistence", "TicketManagement.Persistence\TicketManagement.Persistence.csproj", "{014B7C61-BAC6-494C-87B4-AD4BB653244D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketManagement.Persistence", "TicketManagement.Persistence\TicketManagement.Persistence.csproj", "{014B7C61-BAC6-494C-87B4-AD4BB653244D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
