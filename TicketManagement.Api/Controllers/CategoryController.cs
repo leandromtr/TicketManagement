@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace GloboTicket.TicketManagement.Api.Controllers
+namespace TicketManagement.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -4,7 +4,7 @@ using TicketManagement.Application.Features.Events.Queries.GetEventsExport;
 using System.Collections.Generic;
 using System.IO;
 
-namespace GloboTicket.TicketManagement.Infrastructure
+namespace TicketManagement.Infrastructure
 {
     public class CsvExporter : ICsvExporter
     {

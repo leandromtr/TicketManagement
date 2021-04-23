@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace GloboTicket.TicketManagement.Api.Controllers
+namespace TicketManagement.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TicketManagement.Application.Features.Events.Queries.GetEventsExport;
 
-namespace GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventsExport
+namespace TicketManagement.Application.Features.Events.Queries.GetEventsExport
 {
     public class GetEventsExportQueryHandler : IRequestHandler<GetEventsExportQuery, EventExportFileVm>
     {

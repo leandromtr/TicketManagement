@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using TicketManagement.Api.Utility;
 
 namespace TicketManagement.Api
 {
@@ -47,7 +48,7 @@ namespace TicketManagement.Api
 
                 });
 
-                //c.OperationFilter<FileResultContentTypeOperationFilter>();
+                c.OperationFilter<FileResultContentTypeOperationFilter>();
             });
         }
 
