@@ -1,8 +1,8 @@
 ﻿using TicketManagement.Application.Exceptions;
 using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 using System;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace TicketManagement.Api.Middleware
@@ -40,16 +40,16 @@ namespace TicketManagement.Api.Middleware
             {
                 case ValidationException validationException:
                     httpStatusCode = HttpStatusCode.BadRequest;
-                    result = JsonConvert.SerializeObject(validationException.ValdationErrors);
+                    result = JsonSerializer.Serialize(validationException.ValdationErrors);
                     break;
                 case BadRequestException badRequestException:
                     httpStatusCode = HttpStatusCode.BadRequest;
                     result = badRequestException.Message;
                     break;
-                case NotFoundException notFoundException:
+                case NotFoundException:
                     httpStatusCode = HttpStatusCode.NotFound;
                     break;
-                case Exception ex:
+                case Exception:
                     httpStatusCode = HttpStatusCode.BadRequest;
                     break;
             }
@@ -58,7 +58,7 @@ namespace TicketManagement.Api.Middleware
 
             if (result == string.Empty)
             {
-                result = JsonConvert.SerializeObject(new { error = exception.Message });
+                result = JsonSerializer.Serialize(new { error = exception.Message });
             }
 
             return context.Response.WriteAsync(result);

@@ -2,10 +2,6 @@
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TicketManagement.Application.Contracts.Infrastructure;
 using TicketManagement.Application.Models.Mail;

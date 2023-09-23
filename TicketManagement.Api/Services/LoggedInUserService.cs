@@ -2,15 +2,23 @@
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace GloboTicket.TicketManagement.Api.Services
+namespace TicketManagement.Api.Services
 {
     public class LoggedInUserService : ILoggedInUserService
     {
+        private readonly IHttpContextAccessor _contextAccessor;
         public LoggedInUserService(IHttpContextAccessor httpContextAccessor)
         {
-            UserId = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+            _contextAccessor = httpContextAccessor;
+            //UserId = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
         }
 
-        public string UserId { get; }
+        public string UserId
+        {
+            get
+            {
+                return _contextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+            }
+        }
     }
 }

@@ -23,7 +23,6 @@ namespace TicketManagement.Application.Features.Events.Commands.UpdateEvent
         {
 
             var eventToUpdate = await _eventRepository.GetByIdAsync(request.EventId);
-
             if (eventToUpdate == null)
             {
                 throw new NotFoundException(nameof(Event), request.EventId);

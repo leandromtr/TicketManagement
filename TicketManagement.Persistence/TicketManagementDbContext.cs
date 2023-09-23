@@ -12,10 +12,10 @@ namespace TicketManagement.Persistence
     {
         private readonly ILoggedInUserService _loggedInUserService;
 
-        public TicketManagementDbContext(DbContextOptions<TicketManagementDbContext> options)
-           : base(options)
-        {
-        }
+        //public TicketManagementDbContext(DbContextOptions<TicketManagementDbContext> options)
+        //   : base(options)
+        //{
+        //}
 
         public TicketManagementDbContext(DbContextOptions<TicketManagementDbContext> options, ILoggedInUserService loggedInUserService)
             : base(options)

@@ -1,58 +1,26 @@
-using TicketManagement.Identity.Models;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using TicketManagement.Api;
 using Serilog;
-using System;
-using System.Threading.Tasks;
 
-namespace TicketManagement.Api
-{
-    public class Program
-    {
-        public async static Task Main(string[] args)
-        {
-            var config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateBootstrapLogger();
 
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(config)
-                .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
-                .CreateLogger();
+Log.Information("TicketManagement API starting");
 
-            var host = CreateHostBuilder(args).Build();
+var builder = WebApplication.CreateBuilder(args);
 
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+builder.Host.UseSerilog((context, loggerConfiguration) => loggerConfiguration
+     .WriteTo.Console()
+     .ReadFrom.Configuration(context.Configuration));
 
-                try
-                {
-                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+var app = builder
+       .ConfigureServices()
+       .ConfigurePipeline();
 
-                    await Identity.Seed.UserCreator.SeedAsync(userManager);
-                    Log.Information("Application Starting");
-                }
-                catch (Exception ex)
-                {
-                    Log.Warning(ex, "An error occured while starting the application");
-                }
-            }
+app.UseSerilogRequestLogging();
 
-            host.Run();
-        }
+await app.ResetDatabaseAsync();
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-             .UseSerilog()
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
-}
+app.Run();
+
+public partial class Program { }

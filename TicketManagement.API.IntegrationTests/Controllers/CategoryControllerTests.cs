@@ -1,19 +1,15 @@
-using TicketManagement.Api;
 using TicketManagement.API.IntegrationTests.Base;
 using TicketManagement.Application.Features.Categories.Queries.GetCategoriesList;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace TicketManagement.API.IntegrationTests.Controllers
 {
 
-    public class CategoryControllerTests : IClassFixture<CustomWebApplicationFactory<Startup>>
+    public class CategoryControllerTests : IClassFixture<CustomWebApplicationFactory<Program>>
     {
-        private readonly CustomWebApplicationFactory<Startup> _factory;
+        private readonly CustomWebApplicationFactory<Program> _factory;
 
-        public CategoryControllerTests(CustomWebApplicationFactory<Startup> factory)
+        public CategoryControllerTests(CustomWebApplicationFactory<Program> factory)
         {
             _factory = factory;
         }
